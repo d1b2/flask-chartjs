@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Cards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-heading">
+        <h1>Sample plots</h1>
+    </div>
+    <div class="container">
+        <div class="card card-height">
+            <strong>Workload in Weekdays</strong>
+        </br>
+            <canvas id="chart1"></canvas>
+        </div>
+        <div class="card card-height">
+            <strong>% of time spend Vs activity catergories</strong>
+        </br>
+            <canvas id="chart2"></canvas>
+        </div>
+    </div>
+    <script>
+        var chartData1 = {{ chart_data_1|tojson|safe }};
+        var chartData2 = {{ chart_data_2|tojson|safe }};
+    </script>
+    <script src="{{ url_for('static', filename='charts.js') }}"></script>
+</body>
+</html>
